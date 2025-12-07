@@ -33,6 +33,15 @@ def assign_piece():
     #Assign piece to the main point
     current_piece = piece_types[random.randint(1, 7)]
     print(current_piece)
+    assign_global_coords()
+
+def assign_global_coords():
+    main_block_cords = {
+    1: [5, 19],
+    2: [5 + current_piece[0][0], current_piece[0][1]
+    3: [5 + current_piece[1][0], current_piece[1][1]
+    4: [5 + current_piece[2][0], current_piece[2][1]
+    print(main_block_cords)
 
 def main_frame_loop():
     if not piece_active:
