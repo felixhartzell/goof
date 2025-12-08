@@ -1,4 +1,5 @@
 import random
+from inputimeout import inputimeout
 
 #Variables
 piece_active = False
@@ -53,15 +54,19 @@ def check_piece_active():
         assign_piece()
 
 def main_frame_loop():
+    try:
     user_input = input("Input(a/d): ").lower()
     if user_input == "a":
         choice = -1
-    else:
+    elif user_input == "d":
         choice = 1
+    else:
+        choice = 0
     for i in range(4):
         main_block_cords[f"{i + 1}"][0] += choice
     for i in range(4):
         main_block_cords[f"{i + 1}"][1] -= 1
+    map_printing()
     for f in range(20):
         for i in range(10):
             checking = map[f][i]
