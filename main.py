@@ -2,6 +2,7 @@ import random
 
 #Variables
 piece_active = False
+current_piece = 0
 
 #Define piece types and their block positions
 #1 = T piece
@@ -31,16 +32,19 @@ make_map()
 
 def assign_piece():
     #Assign piece to the main point
+    global current_piece
     current_piece = piece_types[random.randint(1, 7)]
     print(current_piece)
     assign_global_coords()
 
 def assign_global_coords():
+    print (current_piece)
     main_block_cords = {
     1: [5, 19],
-    2: [5 + current_piece[0][0], current_piece[0][1]
-    3: [5 + current_piece[1][0], current_piece[1][1]
-    4: [5 + current_piece[2][0], current_piece[2][1]
+    2: [5 + current_piece[0][0], 19 + current_piece[0][1]],
+    3: [5 + current_piece[1][0], 19 + current_piece[1][1]],
+    4: [5 + current_piece[2][0], 19 + current_piece[2][1]],
+    }
     print(main_block_cords)
 
 def main_frame_loop():
@@ -48,4 +52,3 @@ def main_frame_loop():
         assign_piece()
 
 main_frame_loop()
-
